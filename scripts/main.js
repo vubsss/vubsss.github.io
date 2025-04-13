@@ -1,8 +1,8 @@
 let hz = 1000;
 
 const buttons = document.querySelectorAll('button[data-popup]');
-const popups = document.querySelectorAll('.popup-container')
-const closebtn = document.querySelectorAll('.close-btn')
+const popups = document.querySelectorAll('.popup-container');
+const closebtn = document.querySelectorAll('.close-btn');
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -10,8 +10,7 @@ buttons.forEach(button => {
         const popup = document.getElementById(`${popupId}-popup`);
         if (popup.style.display === 'block') {
             bringToFront(popup);
-        }
-        else {
+        } else {
             popup.style.display = 'block';
             bringToFront(popup);
         }
@@ -27,48 +26,77 @@ closebtn.forEach(btn => {
 
 popups.forEach(popup => {
     makePopupDraggable(popup);
-    popup.addEventListener('mousedown', () => {
-        bringToFront(popup);
-    });
+    popup.addEventListener('mousedown', () => bringToFront(popup));
+    popup.addEventListener('touchstart', () => bringToFront(popup));
 });
 
 function makePopupDraggable(popup) {
     const header = popup.querySelector('.popup-header');
-    let offsetX, offsetY, isDragging = false;
-    header.addEventListener('mousedown', startDrag);
-    function startDrag(e) {
-        if (e.target.tagName === 'BUTTON') return;
-        isDragging = true;
-        offsetX = e.clientX - popup.getBoundingClientRect().left;
-        offsetY = e.clientY - popup.getBoundingClientRect().top;
-        document.addEventListener('mousemove', drag);
-        document.addEventListener('mouseup', stopDrag);
-        e.preventDefault();
-    }
+    let offsetX = 0, offsetY = 0, isDragging = false;
 
-    function drag(e) {
+    const startDrag = (x, y) => {
+        isDragging = true;
+        const rect = popup.getBoundingClientRect();
+        offsetX = x - rect.left;
+        offsetY = y - rect.top;
+    };
+
+    const drag = (x, y) => {
         if (!isDragging) return;
 
-        let x = e.clientX - offsetX;
-        let y = e.clientY - offsetY;
+        let newX = x - offsetX;
+        let newY = y - offsetY;
 
-        const popupWidth = popup.offsetWidth;
-        const popupHeight = popup.offsetHeight;
-        const maxX = window.innerWidth - popupWidth;
-        const maxY = window.innerHeight - popupHeight;
+        const maxX = window.innerWidth - popup.offsetWidth;
+        const maxY = window.innerHeight - popup.offsetHeight;
 
-        x = Math.max(0, Math.min(x, maxX));
-        y = Math.max(0, Math.min(y, maxY));
+        newX = Math.max(0, Math.min(newX, maxX));
+        newY = Math.max(0, Math.min(newY, maxY));
 
-        popup.style.left = `${x}px`;
-        popup.style.top = `${y}px`;
-    }
+        popup.style.left = `${newX}px`;
+        popup.style.top = `${newY}px`;
+    };
 
-    function stopDrag() {
+    const stopDrag = () => {
         isDragging = false;
-        document.removeEventListener('mousemove', drag);
-        document.removeEventListener('mouseup', stopDrag);
-    }
+    };
+
+    // Mouse events
+    header.addEventListener('mousedown', e => {
+        if (e.target.tagName === 'BUTTON') return;
+        startDrag(e.clientX, e.clientY);
+        document.addEventListener('mousemove', mouseMove);
+        document.addEventListener('mouseup', mouseUp);
+        e.preventDefault();
+    });
+
+    const mouseMove = e => drag(e.clientX, e.clientY);
+    const mouseUp = () => {
+        stopDrag();
+        document.removeEventListener('mousemove', mouseMove);
+        document.removeEventListener('mouseup', mouseUp);
+    };
+
+    // Touch events
+    header.addEventListener('touchstart', e => {
+        if (e.target.tagName === 'BUTTON') return;
+        const touch = e.touches[0];
+        startDrag(touch.clientX, touch.clientY);
+        document.addEventListener('touchmove', touchMove);
+        document.addEventListener('touchend', touchEnd);
+        e.preventDefault();
+    });
+
+    const touchMove = e => {
+        const touch = e.touches[0];
+        drag(touch.clientX, touch.clientY);
+    };
+
+    const touchEnd = () => {
+        stopDrag();
+        document.removeEventListener('touchmove', touchMove);
+        document.removeEventListener('touchend', touchEnd);
+    };
 }
 
 function bringToFront(popup) {

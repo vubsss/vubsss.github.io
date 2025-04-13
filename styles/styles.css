@@ -105,9 +105,12 @@ button{
 }
 
 .about-content {
-    background-color: #f0f8ff; /* Light blue */
+    background-color: #f0f8ff;
     display: grid;
     grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    margin: px auto;
+    border: 2px solid #444;
 }
 
 .about-content button{
@@ -125,6 +128,9 @@ button{
 .aboutme-content{
     display: flex;
     color: black;
+    gap: 10px;
+    margin: px auto;
+    border: 2px solid #444;
 }
 
 .aboutme-content p{
@@ -144,12 +150,32 @@ button{
 
 .educ-content{
     color: black;
+    gap: 10px;
+    margin: px auto;
+    border: 2px solid #444;
 }
 
 .skills-content {
     background-color: #f0fff0;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+    gap: 10px;
+    margin: px auto;
+    border: 2px solid #444;
 }
 
+.skills-content img{
+    height: 75px;
+    width: 75px;
+    padding: 30px;
+    transition: transform 0.2s ease;
+}
+
+.skills-content img:hover{
+    transform: scale(1.1);
+}
 
 .jsfun-content {
     background-color: #fffacd;
@@ -158,6 +184,21 @@ button{
 .footer{
     width: 100%;
     background-color: #0D4974;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer a{
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    margin-right: 10px;
+}
+
+.footer a:hover{
+    color: lightblue;
+    transform: scale(1.1);
 }
 
 .footer button{
