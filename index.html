@@ -5,12 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vibsite</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/menu.png" type="image/x-icon">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to vibsite</h1>
-        <p>This is a simple HTML page.</p>
-        <button id="clickMe">Click Me!</button>
+    <div class="main">
+        <div class="nav">
+            <div class="buttons">
+                <button data-popup="about">
+                    <img src="images/about-default.png" alt="About">
+                </button>
+            </div>
+            <div class="buttons">
+                <button data-popup="skills">
+                    <img src="images/skills-default.png" alt="Skills">
+                </button>
+            </div>
+            <div class="buttons">
+                <button id="resume">
+                    <a href="cv/resume.pdf" target="_blank"><img src="images/resume-default.png" alt="Resume"></a>
+                </button>
+            </div>
+            <div class="buttons">
+                <button data-popup="jsfun">
+                    <img src="images/jsfun-default.png" alt="JS Fun">
+                </button>
+            </div>
+        </div>
     </div>
+    <!----->
+    <div class="footer">
+        <div class="home">
+            <button>
+                <img src="images/menu.png">
+            </button>
+        </div>
+    </div>
+    <!---->
+    <div id="about-popup" class="popup-container" style="top: 20vh; left: 20vw;">
+        <div class="popup">
+            <div class="popup-header">
+                <h4 class="popup-title">About</h4>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="popup-body about-content">
+                <button data-popup="aboutme"><img src="images/about-me.png"></button>
+                <button data-popup="homet"><img src="images/hometown.png"></button>
+                <button data-popup="educ"><img src="images/educ.png"></button>
+                <button data-popup="acts"><img src="images/acts.png"></button>
+            </div>
+        </div>
+    </div>
+    <!----->
+    <div id="aboutme-popup" class="popup-container" style="top: 30vh; left: 10vw">
+        <div class="popup">
+            <div class="popup-header">
+                <h4 class="popup-title">About Me</h4>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="popup-body aboutme-content">
+               <div class="text">
+                    <h3><strong>Hi, it's Vibhu</strong></h3>
+                    <p>I am a CHD student at IIIT Hyderabad.</p>
+                    <p>I am very passionate about nothing.</p>
+                    <p>AAAAAAAAAAH.</p>
+                </div>
+                <div class="images">
+                    <img src="images/pfp.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <div id="homet-popup" class="popup-container" style="top: 10vh; left: 40vw">
+        <div class="popup">
+            <div class="popup-header">
+                <h4 class="popup-title">Hometown</h4>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="popup-body aboutme-content">
+                <img src="images/hometown/qutub.png">
+                <img src="images/hometown/redfort.png">
+                <img src="images/hometown/jamamasjid.png">
+                <img src="images/hometown/cp.png">
+                <img src="images/hometown/indiagate.png">
+            </div>
+        </div>
+    </div>
+    <!----->
+    <div id="educ-popup" class="popup-container" style="top: 40vh; left: 30vw">
+        <div class="popup">
+            <div class="popup-header">
+                <h4 class="popup-title">Education</h4>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="popup-body educ-content">
+                <h3>School:</h3>
+                <p>Delhi Public School, Vasant Kunj</p>
+                <h3>College:</h3>
+                <p>IIIT Hyderabad</p>
+            </div>
+        </div>
+    </div>
+    <!----->
+    <div id="acts-popup" class="popup-container" style="top: 10vh; left: 60vw">
+        <div class="popup">
+            <div class="popup-header">
+                <h4 class="popup-title">Achievements</h4>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="popup-body educ-content">
+                <h3>Misc:</h3>
+                <p>#1 in subway surfers for a week</p>
+                <h3>Youtube Channel:</h3>
+                <a href="https://youtu.be/ZHgyQGoeaB0?si=DgK3Sg3iK-jQWz3q" target="_blank">1 million Subscribers achieved</a>
+            </div>
+        </div>
+    </div>
+    <!----->
+    <div id="skills-popup" class="popup-container" style="top: 10vh; left: 60vw">
+        <div class="popup">
+            <div class="popup-header">
+                <h4 class="popup-title">Skills</h4>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="popup-body skills-content">
+                <img src="images/skill/c.png">
+                <img src="images/skill/cpp.png">
+                <img src="image/skill/python.png">
+                <img src="image/skill/mongodb.png">
+                <img src="image/skill/sql.png">
+                <img src="image/skill/subway.png">
+            </div>
+        </div>
+    </div>
+    <script src="scripts/main.js"></script>
 </body>
 </html>
