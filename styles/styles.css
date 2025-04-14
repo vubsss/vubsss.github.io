@@ -132,17 +132,30 @@ button{
 .aboutme-content{
     display: flex;
     color: black;
+    overflow: auto;
     gap: 10px;
     margin: 0 auto;
     border: 2px solid #444;
 }
 
-.aboutme-content .images{
+.aboutme-content .images img{
+    height: 150px;
+    width: 250px;
+    border-radius: 5px;
+}
+
+.homet-content{
+    display: flex;
+    color: black;
+    overflow: auto;
+}
+
+.homet-content .images{
     border-radius: 5px;
     margin: 20px;
 }
 
-.aboutme-content .images img{
+.homet-content .images img{
     height: 150px;
     width: 250px;
     border-radius: 5px;
@@ -195,6 +208,11 @@ button{
 
 .jsfun-content p{
     font-size: 7.5px;
+}
+
+textarea{
+    resize: horizontal;
+    margin-right: 10px;
 }
 
 .jsfun-content .inputarea{
@@ -257,6 +275,7 @@ button{
 
     .aboutme-content .images img {
         width: 90vw;
+        height: 150vw;
         height: auto;
     }
 
