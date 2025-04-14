@@ -102,4 +102,8 @@ function makePopupDraggable(popup) {
 function bringToFront(popup) {
     hz++;
     popup.style.zIndex = hz;
+    if (window.innerWidth <= 768) {
+        popup.style.top = '10vh';
+        popup.style.left = '5vw';
+    }
 }
