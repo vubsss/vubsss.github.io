@@ -8,6 +8,10 @@ html, body{
 body{
     font-family: 'Silkscreen';
     font-size: 20px;
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 body p{
@@ -184,13 +188,18 @@ button{
     border: 2px solid #444;
 }
 
+.skills-content .images{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
 .skills-content img{
     height: 75px;
     width: 75px;
-    padding: 30px;
     transition: transform 0.2s ease;
 }
-
 .skills-content img:hover{
     transform: scale(1.1);
 }
@@ -252,6 +261,7 @@ textarea{
     margin-top: 0.1vh;
     margin-left: 1vw;
     gap: 1vw;
+    cursor: pointer;
 }
 
 .footer img{
