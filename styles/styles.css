@@ -133,7 +133,7 @@ button{
     display: flex;
     color: black;
     gap: 10px;
-    margin: px auto;
+    margin: 0 auto;
     border: 2px solid #444;
 }
 
@@ -244,14 +244,15 @@ button{
 @media (max-width: 768px) {
     .popup-container {
         max-width: 90vw;
-        max-height: 80vh;
-        top: 10vh !important;
-        left: 5vw !important;
+        max-height: 2000px;
     }
 
     .aboutme-content {
         flex-direction: column;
         align-items: center;
+        max-height: 60vh;
+        max-width: 90vw;
+        min-width: none;
     }
 
     .aboutme-content .images img {

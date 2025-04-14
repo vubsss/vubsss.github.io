@@ -13,6 +13,10 @@ buttons.forEach(button => {
         } else {
             popup.style.display = 'block';
             bringToFront(popup);
+            if (window.innerWidth <= 768) {
+                popup.style.top = '10vh';
+                popup.style.left = '10vw';
+            }
         }
     });
 });
@@ -109,8 +113,4 @@ function makePopupDraggable(popup) {
 function bringToFront(popup) {
     hz++;
     popup.style.zIndex = hz;
-    if (window.innerWidth <= 768) {
-        popup.style.top = '10vh';
-        popup.style.left = '5vw';
-    }
 }
