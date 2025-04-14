@@ -39,17 +39,24 @@ function makePopupDraggable(popup) {
         const rect = popup.getBoundingClientRect();
         offsetX = x - rect.left;
         offsetY = y - rect.top;
+        //console.log(offsetY)
     };
 
     const drag = (x, y) => {
         if (!isDragging) return;
 
+        const rect = popup.getBoundingClientRect();
+
         let newX = x - offsetX;
         let newY = y - offsetY;
 
-        const maxX = window.innerWidth - popup.offsetWidth;
-        const maxY = window.innerHeight - popup.offsetHeight;
+        let maxX = window.innerWidth - rect.width;
+        let maxY = window.innerHeight - rect.height;
 
+        //console.log(maxY);
+        //console.log(newX);
+        //console.log(popup.offsetHeight)
+        //console.log(maxY)
         newX = Math.max(0, Math.min(newX, maxX));
         newY = Math.max(0, Math.min(newY, maxY));
 

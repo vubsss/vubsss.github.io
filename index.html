@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vibsite</title>
     <link rel="stylesheet" href="styles/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/menu.png" type="image/x-icon">
 </head>
 <body>
@@ -143,16 +145,23 @@
         </div>
     </div>
     <!---->
-    <div id="jsfun-popup" class="popup-container" style="top: 10vh; left: 8vw">
+    <div id="jsfun-popup" class="popup-container" style="top: 5vh; left: 8vw">
         <div class="popup">
             <div class="popup-header">
                 <h4 class="popup-title">JS FUN</h4>
                 <button class="close-btn">&times;</button>
             </div>
             <div class="popup-body jsfun-content">
+                <div class="inputarea">
+                    <textarea id="text-input" placeholder="type all you want" rows="20" cols="60"></textarea>
+                    <button id="process-btn"><img src="images/process.png"></button>
+                </div>
+                <div id="output" style="display: flex; gap: 20px"></div>
             </div>
         </div>
     </div>
     <script src="scripts/main.js"></script>
+    <script src="scripts/p2.js"></script>
+    <script src="scripts/p3.js"></script>
 </body>
 </html>
