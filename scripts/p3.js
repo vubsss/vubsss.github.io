@@ -29,6 +29,21 @@ document.getElementById("process-btn").addEventListener("click", function () {
         }
     });
 
+    let pronounsHTML = '';
+    for (const [k, v] of Object.entries(tokenCounts.pronouns)) {
+        pronounsHTML += `<p>${k}: ${v}</p>`;
+    }
+
+    let prepositionsHTML = '';
+    for (const [k, v] of Object.entries(tokenCounts.prepositions)) {
+        prepositionsHTML += `<p>${k}: ${v}</p>`;
+    }
+
+    let articlesHTML = '';
+    for (const [k, v] of Object.entries(tokenCounts.articles)) {
+        articlesHTML += `<p>${k}: ${v}</p>`;
+    }
+
     const outputDiv = document.getElementById("output");
     outputDiv.innerHTML = `
         <div>
@@ -42,17 +57,17 @@ document.getElementById("process-btn").addEventListener("click", function () {
 
         <div>
             <h5>Pronouns Count</h5>
-            ${Object.entries(tokenCounts.pronouns).map(([k, v]) => `<p>${k}: ${v}</p>`).join('')}
+            ${pronounsHTML}
         </div>
 
         <div>
             <h5>Prepositions Count</h5>
-            ${Object.entries(tokenCounts.prepositions).map(([k, v]) => `<p>${k}: ${v}</p>`).join('')}
+            ${prepositionsHTML}
         </div>
 
         <div>
             <h5>Indefinite Articles Count</h5>
-            ${Object.entries(tokenCounts.articles).map(([k, v]) => `<p>${k}: ${v}</p>`).join('')}
-        </di>
+            ${articlesHTML}
+        </div>
     `;
 });
