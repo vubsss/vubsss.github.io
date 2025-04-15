@@ -11,6 +11,11 @@
     <link rel="icon" href="images/menu.png" type="image/x-icon">
 </head>
 <body>
+    <div id="preloader">
+        <div class="loader">
+            <img src="images/menu.png">
+        </div>
+    </div>
     <div class="main">
         <div class="nav">
             <div class="buttons">
@@ -128,7 +133,7 @@
         </div>
     </div>
     <!----->
-    <div id="skills-popup" class="popup-container" style="top: 45vh; left: 30vw">
+    <div id="skills-popup" class="popup-container" style="top: 40vh; left: 30vw">
         <div class="popup">
             <div class="popup-header">
                 <h4 class="popup-title">Skills</h4>
@@ -181,5 +186,15 @@
     <script src="scripts/main.js"></script>
     <script src="scripts/p2.js"></script>
     <script src="scripts/p3.js"></script>
+    <script>
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+            const preloader = document.getElementById("preloader");
+            if (preloader) {
+                preloader.style.display = "none";
+            }
+        }, 500);
+        });
+    </script>    
 </body>
 </html>
